@@ -66,29 +66,66 @@
         }
 
         /* Навігаційне меню */
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(0, 123, 255, 0.9);
-            padding: 1em 0;
-            font-size: 1.3em;
-            transition: all 0.3s ease;
-            margin-top: 1em;
-            z-index: 1;
+      nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1em 0;
+    font-size: 1.3em;
+    transition: all 0.3s ease;
+    margin-top: 1em;
+    z-index: 1;
+    border-radius: 20px; /* Add rounded corners */
+    overflow: hidden; /* To make sure content doesn't overflow the rounded corners */
+}
+
+
+nav a {
+    text-decoration: none;
+    margin: 0 25px;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    padding: 5px 10px; /* Add some padding for better appearance */
+    border: 2px solid transparent; /* Transparent border initially */
+    border-radius: 12px; /* Rounded corners */
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #fcd116; /* Yellow color on hover */
+    transform: scale(1.1); /* Slight scale on hover */
+    border-color: #fcd116; /* Add yellow border on hover */
+}
+
+
+nav a:hover {
+    color: #fcd116; /* Yellow color on hover */
+    transform: scale(1.1); /* Slight scale on hover */
+    border-color: #fcd116; /* Add yellow border on hover */
+}
+
+        article strong {
+            color: #f39c12; /* Light Yellow for strong text */
         }
-        nav a {
+
+        .read-more-btn {
+            display: inline-block;
+            background-color: #f1c40f; /* Yellow color for the button */
+            padding: 10px 20px;
+            font-size: 1.1em;
+            color: #00274d;
             text-decoration: none;
-            margin: 0 25px;
-            color: #fff;
-            font-weight: 600;
-            position: relative;
-            transition: all 0.3s ease;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
         }
-        nav a:hover {
-            color: #fcd116;
-            transform: scale(1.1); /* Легке збільшення при наведенні */
+
+        .read-more-btn:hover {
+            background-color: #f39c12; /* Light yellow for hover effect */
         }
+    
 
         /* Основний контент */
         .content {

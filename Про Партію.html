@@ -65,29 +65,66 @@
         }
 
         /* Навігаційне меню */
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(0, 123, 255, 0.9);
-            padding: 1em 0;
-            font-size: 1.3em;
-            transition: all 0.3s ease;
-            margin-top: 1em;
-            z-index: 1;
+      nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 4, 56, 0.8);
+    padding: 1em 0;
+    font-size: 1.3em;
+    transition: all 0.3s ease;
+    margin-top: 1em;
+    z-index: 1;
+    border-radius: 20px; /* Add rounded corners */
+    overflow: hidden; /* To make sure content doesn't overflow the rounded corners */
+}
+
+
+nav a {
+    text-decoration: none;
+    margin: 0 25px;
+    color: #fff;
+    font-weight: 600;
+    position: relative;
+    padding: 5px 10px; /* Add some padding for better appearance */
+    border: 2px solid transparent; /* Transparent border initially */
+    border-radius: 12px; /* Rounded corners */
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #fcd116; /* Yellow color on hover */
+    transform: scale(1.1); /* Slight scale on hover */
+    border-color: #fcd116; /* Add yellow border on hover */
+}
+
+
+nav a:hover {
+    color: #fcd116; /* Yellow color on hover */
+    transform: scale(1.1); /* Slight scale on hover */
+    border-color: #fcd116; /* Add yellow border on hover */
+}
+
+        article strong {
+            color: #f39c12; /* Light Yellow for strong text */
         }
-        nav a {
+
+        .read-more-btn {
+            display: inline-block;
+            background-color: #f1c40f; /* Yellow color for the button */
+            padding: 10px 20px;
+            font-size: 1.1em;
+            color: #00274d;
             text-decoration: none;
-            margin: 0 25px;
-            color: #fff;
-            font-weight: 600;
-            position: relative;
-            transition: all 0.3s ease;
+            border-radius: 5px;
+            text-align: center;
+            margin-top: 20px;
         }
-        nav a:hover {
-            color: #fcd116;
-            transform: scale(1.1); /* Легке збільшення при наведенні */
+
+        .read-more-btn:hover {
+            background-color: #f39c12; /* Light yellow for hover effect */
         }
+
 
         .section-title {
             margin: 40px 0 20px;
@@ -162,10 +199,66 @@
             transform: scale(1.05);
         }
 
+
+        .accordion {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.accordion-item {
+    background: rgba(0, 31, 91, 0.8);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.accordion-header {
+    width: 100%;
+    text-align: left;
+    background: #fcd116;
+    padding: 15px;
+    font-size: 1.3em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+    background: #e5b806;
+}
+
+/* Сховане меню */
+.accordion-content {
+    background: rgba(0, 31, 91, 0.95);
+    padding: 0 15px; /* Спочатку без висоти */
+    color: white;
+    font-size: 1.1em;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+/* Активне меню */
+.accordion-item.active .accordion-content {
+    max-height: 500px; /* Достатня висота для розкриття */
+    padding: 15px; /* Додаємо внутрішні відступи */
+}
+
+/* Анімація відкривання */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
         
 
     </style>
 </head>
+
 <body>
     <header>
         <h1>Сталева Держава</h1>
@@ -315,67 +408,107 @@
         
         <section>
             <h2 class="section-title">Статут партії "Сталева Держава"</h2>
-            <div class="card">
-                <h3>І. Загальні положення</h3>
-                <p><strong>Назва партії:</strong> "Сталева держава"</p>
-                <p><strong>Місія:</strong> Сприяти розвитку економічної стабільності та соціальної справедливості через ефективне управління та впровадження інновацій</p>
-                <p><strong>Цілі:</strong></p>
-                <ul>
-                    <li>Підтримка розвитку інфраструктури та промисловості</li>
-                    <li>Створення умов для сталого економічного зростання</li>
-                    <li>Захист прав і свобод громадян</li>
-                </ul>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">І. Загальні положення</button>
+                    <div class="accordion-content">
+                        <p><strong>Назва партії:</strong> "Сталева держава"</p>
+                        <p><strong>Місія:</strong> Сприяти розвитку економічної стабільності та соціальної справедливості.</p>
+                        <p><strong>Цілі:</strong></p>
+                        <ul>
+                            <li>Підтримка розвитку інфраструктури</li>
+                            <li>Створення умов для сталого економічного зростання</li>
+                            <li>Захист прав і свобод громадян</li>
+                        </ul>
+                    </div>
+                </div>
         
-                <h3>ІІ. Створення та структура партії</h3>
-                <p><strong>Засновники:</strong></p>
-                <ul>
-                    <li><strong>Голова партії:</strong> Олександр Шміт</li>
-                    <li><strong>Заступник голови:</strong> Єгор Фенікс</li>
-                    <li><strong>Куратори:</strong> Олександр Меджик</li>
-                </ul>
-                <p><strong>Умови вступу:</strong> Кандидати повинні проживати в місті не менше 7 років</p>
-                <p><strong>Офіційне підтвердження:</strong> Для реєстрації партії необхідно сплатити 1 000 000 гривень у фонд “Будуємо Україну разом”</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">ІІ. Створення та структура партії</button>
+                    <div class="accordion-content">
+                        <p><strong>Засновники:</strong></p>
+                        <ul>
+                            <li><strong>Голова партії:</strong> Олександр Шміт</li>
+                            <li><strong>Заступник голови:</strong> Єгор Фенікс</li>
+                        </ul>
+                        <p><strong>Умови вступу:</strong> Кандидати повинні проживати в місті не менше 7 років.</p>
+                    </div>
+                </div>
         
-                <h3>ІІІ. Бюджет та фінансування</h3>
-                <p><strong>Джерела фінансування:</strong></p>
-                <ul>
-                    <li>Членські внески</li>
-                    <li>Благодійні пожертви</li>
-                    <li>Організовані збори за погодженням з Президентом</li>
-                </ul>
-                <p><strong>Розподіл коштів:</strong></p>
-                <ul>
-                    <li>Партія зобов'язана звітувати про всі грошові операції</li>
-                    <li>Проведення розіграшів та акцій узгоджується з Президентом</li>
-                </ul>
+                <div class="accordion-item">
+                    <button class="accordion-header">ІІІ. Бюджет та фінансування</button>
+                    <div class="accordion-content">
+                        <p><strong>ІІІ Бюджет та фінансування</strong></p>
+                        <p><strong>Джерела фінансування:</strong></p>
+                        <ul>
+                            <li>Членські внески</li>
+                            <li>Благодійні пожертви</li>
+                            <li>Організовані збори за погодженням з Президентом</li>
+                        </ul>
+                        <p><strong>Розподіл коштів:</strong></p>
+                        <ul>
+                            <li>Партія зобов'язана звітувати про всі грошові операції</li>
+                            <li>Проведення розіграшів та акцій узгоджується з Президентом</li>
+                        </ul>
+                    </div>
+                    
+                </div>
         
-                <h3>IV. Обов’язки та права партії</h3>
-                <p><strong>Обов'язки:</strong></p>
-                <ul>
-                    <li>Щотижневий письмовий звіт про діяльність на форумі</li>
-                    <li>Активна участь у благодійних акціях та івентах</li>
-                </ul>
-                <p><strong>Права:</strong></p>
-                <ul>
-                    <li>Подання кандидатів у Президенти та Парламент</li>
-                    <li>Організація громадських заходів з адміністративною підтримкою</li>
-                </ul>
+                <div class="accordion-item">
+                    <button class="accordion-header">IV. Обов’язки та права партії</button>
+                    <div class="accordion-content">
+                        <p><strong>IV Обов’язки та права партії</strong></p>
+                        <p><strong>Обов'язки:</strong></p>
+                        <ul>
+                            <li>Щотижневий письмовий звіт про діяльність на форумі</li>
+                            <li>Активна участь у благодійних акціях та івентах</li>
+                        </ul>
+                        <p><strong>Права:</strong></p>
+                        <ul>
+                            <li>Подання кандидатів у Президенти та Парламент</li>
+                            <li>Організація громадських заходів з адміністративною підтримкою</li>
+                        </ul>
+                    </div>
+                    
+                </div>
         
-                <h3>V. Заборони та санкції</h3>
-                <p><strong>Заборонено:</strong></p>
-                <ul>
-                    <li>Порушувати правила державних організацій</li>
-                    <li>Здійснювати злочинну діяльність без погодження з адміністрацією</li>
-                </ul>
-                <p><strong>Санкції:</strong></p>
-                <ul>
-                    <li>Попередження, догани, штрафи</li>
-                    <li>Тимчасове припинення діяльності у разі досудового розслідування</li>
-                </ul>
+                <div class="accordion-item">
+                    <button class="accordion-header">V. Заборони та санкції</button>
+                    <div class="accordion-content">
+                        <p><strong>V Заборони та санкції</strong></p>
+                        <p><strong>Заборонено:</strong></p>
+                        <ul>
+                            <li>Порушувати правила державних організацій</li>
+                            <li>Здійснювати злочинну діяльність без погодження з адміністрацією</li>
+                        </ul>
+                        <p><strong>Санкції:</strong></p>
+                        <ul>
+                            <li>Попередження, догани, штрафи</li>
+                            <li>Тимчасове припинення діяльності у разі досудового розслідування</li>
+                        </ul>
+                    </div>
+                    
+                </div>
             </div>
         </section>
         
-       
+       <!-- JavaScript вставити тут перед закриваючим тегом body -->
+    <script>
+        document.querySelectorAll(".accordion-header").forEach(button => {
+            button.addEventListener("click", () => {
+                const item = button.parentElement;
+                const content = item.querySelector(".accordion-content");
+
+                // Перевірка, чи вже є активний клас
+                if (item.classList.contains("active")) {
+                    item.classList.remove("active");  // Закриваємо поточний блок
+                } else {
+                    document.querySelectorAll(".accordion-item").forEach(i => i.classList.remove("active"));  // Закриваємо інші блоки
+                    item.classList.add("active"); // Відкриваємо поточний блок
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
